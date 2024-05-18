@@ -1,0 +1,97 @@
+.body {
+    background: linear-gradient(180deg, rgba(22, 47, 111, 1), rgba(3, 20, 63, 1));
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    min-width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main.container {
+    border-radius: 20px;
+    background: var(--degrade-caixa);
+    min-width: 400px;
+    min-height: 500px;
+    padding: 2rem;
+    box-shadow: 40px 40px 56px rgba(0, 6, 29, 0.25);
+    border-radius: 12px;
+}
+
+main > h2 {
+    text-align: center;
+    color: var(--color_form_login_title, #AC7C00);
+    margin-bottom: 10px;
+    font-size: xx-large;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field {
+    text-align: center;
+    font-size: large;
+}
+
+.input-field input {
+    outline: none;
+    margin-bottom: 1rem;
+    background: rgba(217, 217, 217, 0.28);
+    box-shadow: 1px 6px 10px rgba(109, 91, 43, 0.44);
+    border-radius: 8px;
+    min-width: 300px;
+    min-height: 40px;
+    text-align: start;
+    padding-left: 10px;
+    padding-bottom: 4px;
+}
+
+.input-field input::placeholder {
+    color: rgba(77, 90, 80, 1);
+    font-size: small;
+}
+
+.text_with_link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.create_account {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#button_create_account {
+    border-radius: 20px;
+    border: 1px solid var(--secondary_color);
+    width: 7rem;
+    color: var(--secondary_color);
+}
+
+#image {
+    padding-right: 7rem;
+}
+
+#back {
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    color: var(--black_font_color);
+    border-radius: 20px;
+    border: 1px solid var(--black_font_color);
+    display: flex;
+    padding: 0.4rem;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
