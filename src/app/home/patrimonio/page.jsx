@@ -7,8 +7,10 @@ import { Box } from '@mui/material';
 const Patrimonio = () => {
   return (
     <Box
-      width='80%'
-      marginTop= '87px'
+      width='100%'
+      marginTop= '10rem'
+      marginRight='1rem'
+      marginLeft='1rem'
       >
         <CarteiraGraphic />
     </Box>

@@ -2,16 +2,17 @@
 
 import React from 'react';
 import { Box } from '@mui/material';
+import ApexChart from '@/app/components/graphics/position';
 
-const Patrimonio = () => {
+const Investimento = () => {
   return (
     <Box
-      width='70%'
-      marginLeft='15rem'
+      width='80%'
+      marginTop= '87px'
       >
-        <p>hello</p>
+        <ApexChart />
     </Box>
   )
 };
 
-export default Patrimonio;
+export default Investimento;

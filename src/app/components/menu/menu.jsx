@@ -37,7 +37,10 @@ export default function MenuComponent() {
         width='20rem'
         position='relative'
         top='87px'
-        sx={{ flexGrow: 1 }}
+        sx={{ 
+          flexGrow: 1,
+          display: { xs: 'none', md: 'block'}
+        }}
       >
         <Box sx={{ display: { xs: 'none', md: 'block' } }}>
           <Paper
@@ -46,7 +49,7 @@ export default function MenuComponent() {
               flexDirection: 'column',
               backgroundColor: '#162c63',
               color: '#f2f4f5',
-              borderRadius: '0px',
+               borderRadius: '0px',
               height: '100vh',
               width: '20rem',
             }}
