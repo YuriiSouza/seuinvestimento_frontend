@@ -14,9 +14,12 @@
     "@mui/icons-material": "^5.15.18",
     "@mui/material": "^5.15.18",
     "axios": "^1.6.8",
+    "chart.js": "^4.4.3",
+    "chartjs": "^0.3.24",
     "next": "14.2.3",
     "normalize.css": "^8.0.1",
     "react": "^17.0.0 || ^18.0.0",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^17.0.0 || ^18.0.0"
   },
   "devDependencies": {

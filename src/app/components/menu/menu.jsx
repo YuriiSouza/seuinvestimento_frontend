@@ -1,77 +1,70 @@
 'use client';
 
 import * as React from 'react';
-import Button from '@mui/material/Button';
-import ClickAwayListener from '@mui/material/ClickAwayListener';
-import Grow from '@mui/material/Grow';
 import Paper from '@mui/material/Paper';
-import Popper from '@mui/material/Popper';
 import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
-import CandlestickChartIcon from '@mui/icons-material/CandlestickChart';import Stack from '@mui/material/Stack';
+import CandlestickChartIcon from '@mui/icons-material/CandlestickChart';
+import Stack from '@mui/material/Stack';
+import { useRouter } from 'next/navigation';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+
+const themeWhite = createTheme({
+  palette: {
+    primary: {
+      main: '#ffffff',
+    },
+    secondary: {
+      main: '#f2f4f5',
+    },
+  },
+});
 
 export default function MenuComponent() {
-  // const [open, setOpen] = React.useState(false);
-  // const anchorRef = React.useRef(null);
+  const router = useRouter();
 
-  // const handleToggle = () => {
-  //   setOpen((prevOpen) => !prevOpen);
-  // };
-
-  // const handleClose = (event) => {
-  //   if (anchorRef.current && anchorRef.current.contains(event.target)) {
-  //     return;
-  //   }
-
-  //   setOpen(false);
-  // };
-
-  // function handleListKeyDown(event) {
-  //   if (event.key === 'Tab') {
-  //     event.preventDefault();
-  //     setOpen(false);
-  //   } else if (event.key === 'Escape') {
-  //     setOpen(false);
-  //   }
-  // }
-
-  // // return focus to the button when we transitioned from !open -> open
-  // const prevOpen = React.useRef(open);
-  // React.useEffect(() => {
-  //   if (prevOpen.current === true && open === false) {
-  //     anchorRef.current.focus();
-  //   }
-
-  //   prevOpen.current = open;
-  // }, [open]);
+  const goTo = (path) => {
+    return () => {
+      router.push(path);
+    };
+  };
 
   return (
-    <Stack 
-      direction="row" 
-      spacing={2}
+    <ThemeProvider theme={themeWhite}>
+      <Stack
+        width='20rem'
+        position='relative'
+        top='87px'
+        sx={{ flexGrow: 1 }}
       >
-      <Paper
-        sx={{ 
-          backgroundColor: '#162c63',
-          color: '#f2f4f5',
-          borderRadius: '0px',
-          width: '20rem',
-          height: '100vw'
-          }}
-        >
-        <MenuList>
-          <MenuItem>
-            <MonetizationOnIcon />
-            <p>Investimentos</p>
-          </MenuItem>
+        <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+          <Paper
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              backgroundColor: '#162c63',
+              color: '#f2f4f5',
+              borderRadius: '0px',
+              height: '100vh',
+              width: '20rem',
+            }}
+          >
+            <MenuList width='20rem' height='100%'>
+              <MenuItem onClick={goTo('/home/investimento')}>
+                <MonetizationOnIcon />
+                Investimentos
+              </MenuItem>
 
-          <MenuItem>
-            <CandlestickChartIcon />
-            <p>Logout</p>
-          </MenuItem>
-        </MenuList>
-      </Paper>
-    </Stack>
+              <MenuItem onClick={goTo('/home/patrimonio')}>
+                <CandlestickChartIcon />
+                Patrimônio
+              </MenuItem>
+            </MenuList>
+          </Paper>
+        </Box>
+      </Stack>
+    </ThemeProvider>
   );
 }

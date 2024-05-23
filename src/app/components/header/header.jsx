@@ -19,8 +19,6 @@ import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import CandlestickChartIcon from '@mui/icons-material/CandlestickChart';
 
-import MenuComponent from '@/app/components/menu/menu'
-
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -92,6 +90,7 @@ export default function Header() {
   const menuId = 'menuId';
   const renderMenu = (
     <Menu
+      position='fixed'
       anchorEl={anchorEl}
       anchorOrigin={{
         vertical: 'top',
@@ -115,6 +114,7 @@ export default function Header() {
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
     <Menu
+      position='fixed'
       anchorEl={mobileMoreAnchorEl}
       anchorOrigin={{
         vertical: 'top',
@@ -150,13 +150,13 @@ export default function Header() {
   const mobileBarMenuId = 'mobileBarMeny';
   const renderMobileBarMenu = (
     <Menu
+      position='fixed'
       anchorEl={mobileMoreAnchorEl}
       anchorOrigin={{
         vertical: 'top',
         horizontal: 'right',
       }}
       id={mobileBarMenuId}
-      keepMounted
       transformOrigin={{
         vertical: 'top',
         horizontal: 'right',
@@ -182,13 +182,20 @@ export default function Header() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar 
-        position="static"
+    <Box
+      elevation={0} 
+      sx={{ 
+        flexGrow: 1
+      }}
+    >
+      <AppBar
         sx={{ backgroundColor: '#162c63' }}
         >
         <Toolbar>
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ 
+            display: { xs: 'flex', md: 'none' } 
+            
+            }}>
             <IconButton
               size="large"
               aria-label="show more"
@@ -205,7 +212,7 @@ export default function Header() {
             noWrap
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
-          >
+            >
             <img src="/images/logo.png" alt="logo"/>
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
@@ -215,7 +222,7 @@ export default function Header() {
               color="inherit"
               aria-label="open drawer"
               sx={{ mr: 2 }}
-            >
+              >
             <RemoveRedEyeIcon />
           </IconButton>
           <Search>
@@ -225,14 +232,14 @@ export default function Header() {
             <StyledInputBase
               placeholder="Pesquisar"
               inputProps={{ 'Montserrat': 'Pesquisar' }}
-            />
+              />
           </Search>
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton
               aria-label="account of current user"
               aria-controls={menuId}
               onClick={handleProfileMenuOpen}
-            >
+              >
               <img src="/images/user_photo.png" alt="User" />
             </IconButton>
           </Box>
@@ -244,15 +251,12 @@ export default function Header() {
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
               color="inherit"
-            >
+              >
               <MoreIcon />
             </IconButton>
           </Box>
         </Toolbar>
       </AppBar>
-      <Box sx={{ display: { xs: 'none', md: 'flex'} }}>
-          <MenuComponent/>
-      </Box>
       {renderMobileMenu}
       {renderMenu}
       {renderMobileBarMenu}
