@@ -10,15 +10,31 @@ const themeWhite = createTheme({
     secondary: {
       main: '#162c63',
     },
-    font: {
-      main: '#4d5a50'
+    error: {
+      main: '#ff2950',
     },
-    link: {
-      main: '#0000ff'
-    }
+    success: {
+      main: '#24ff00',
+    },
+    background: {
+      default: '#f2f4f5',
+      paper: '#f2f4f5',
+    },
+    text: {
+      primary: '#4d5a50',
+      secondary: '#f2f4f5',
+    },
   },
   typography: {
     fontFamily: 'Montserrat, sans-serif',
+  },
+  overrides: {
+    MuiButton: {
+      root: {
+        borderRadius: 0, // Exemplo de uma propriedade que você pode definir para todos os botões
+      },
+    },
+    // Adicione mais overrides conforme necessário para outros componentes do Material-UI
   },
 });
 

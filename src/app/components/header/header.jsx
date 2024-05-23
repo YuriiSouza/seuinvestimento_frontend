@@ -183,9 +183,8 @@ export default function Header() {
 
   return (
     <Box
-      elevation={0} 
       sx={{ 
-        flexGrow: 1
+        flexGrow: 1,
       }}
     >
       <AppBar
