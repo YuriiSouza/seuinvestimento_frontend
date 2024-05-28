@@ -1,8 +1,6 @@
 @import 'normalize.css';
 
 html {
-    height: 100%;
-    width: 100%;
     background-color: var(--secondary_color);
 }
 
@@ -10,7 +8,6 @@ html {
     padding: none;
     margin: none;
     border: none;
-    font-size: 100%;
     vertical-align: baseline;
     font-family: var(--font);
     font-size: 16px;
@@ -23,7 +20,7 @@ html {
     --white_bg: #f2f4f5;
     --white_font_color: #4d5a50;
     --black_bg: #404040;
-    --black_font_color: #f2f4f5; /* Adicione # antes da cor */
+    --black_font_color: #f2f4f5;
     --alert: #ff2950;
     --graphic_bg: #f2f4f5;
     --gain: #24ff00;

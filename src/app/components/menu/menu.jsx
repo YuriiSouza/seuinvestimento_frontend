@@ -31,13 +31,15 @@ export default function MenuComponent() {
     };
   };
 
+
+
   return (
     <ThemeProvider theme={themeWhite}>
       <Stack
         width='20rem'
         position='relative'
         top='87px'
-        sx={{ 
+        sx={{
           flexGrow: 1,
           display: { xs: 'none', md: 'block'}
         }}
@@ -54,7 +56,7 @@ export default function MenuComponent() {
               width: '20rem',
             }}
           >
-            <MenuList width='20rem' height='100%'>
+            <MenuList>
               <MenuItem onClick={goTo('/home/investimento')}>
                 <MonetizationOnIcon />
                 Investimentos

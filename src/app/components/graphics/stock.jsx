@@ -50,7 +50,7 @@ class StockChart extends React.Component {
           },
           export: {
             csv: {
-              filename: 'patrimonio_dia_a_dia',
+              filename: 'stock',
               columnDelimiter: ',',
               headerCategory: 'category',
               headerValue: 'value',
@@ -59,10 +59,10 @@ class StockChart extends React.Component {
               }
             },
             svg: {
-              filename: 'patrimonio_dia_a_dia',
+              filename: 'stock',
             },
             png: {
-              filename: 'patrimonio_dia_a_dia',
+              filename: 'stock',
             }
           },
           autoSelected: 'zoom' 
@@ -75,7 +75,7 @@ class StockChart extends React.Component {
         curve: 'smooth',
       },
       yaxis: {
-        show: true,
+        show: false,
         showAlways: false,
         showForNullSeries: true,
         opposite: true,
@@ -86,18 +86,6 @@ class StockChart extends React.Component {
         floating: false,
         labels: {
           show: false,
-          minWidth: 0,
-          maxWidth: 100,
-          style: {
-            colors: ['#4D5A50'],
-            fontSize: '1px',
-            fontFamily: 'Montserrat',
-            fontWeight: 300,
-            cssClass: 'class-graphic-carteira',
-          },
-          offsetX: -10,
-          offsetY: 0,
-          rotate: 0,
           formatter: (value) => { 
             let val = value.toFixed(2)
             
@@ -108,16 +96,14 @@ class StockChart extends React.Component {
           },
         },
         axisBorder: {
-          show: true,
+          show: false,
           color: '#78909C',
         },
         axisTicks: {
-          show: true,
-            borderType: 'solid',
-            color: '#78909C',
+          show: false,
           },
           crosshairs: {
-            show: true,
+            show: false,
             position: 'back',
             stroke: {
               color: '#b6b6b6',
@@ -202,12 +188,8 @@ class StockChart extends React.Component {
       },
     ];
 
-    const barStyle = {
-      borderRadius: '20px'
-    }
-
     return (
-      <Chart styles={barStyle} options={options} series={series} type="line" height={500} />
+      <Chart options={options} series={series} type="line" height={460} />
     );
   };
 }
