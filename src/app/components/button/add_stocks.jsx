@@ -1,6 +1,6 @@
 import { Box, Button, ThemeProvider } from '@mui/material';
 import React from 'react';
-import '@/app/globals.css'
+// import '@/app/globals.css'
 
 const Add_stock = () => {
 
@@ -13,7 +13,7 @@ const Add_stock = () => {
         <Button>
             <img src="/svg/add_button.svg" />
         </Button>
-        <p>Adcionar Título</p>
+        <p >Adcionar Título</p>
     </Box>
 );
 }

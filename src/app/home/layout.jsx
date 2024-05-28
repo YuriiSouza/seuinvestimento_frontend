@@ -8,14 +8,14 @@ export default function RootLayout({ children }) {
     <html lang="pt-br">
       <body>
       <Header />
-      <Stack
-        direction='row'
-        >
+        <Stack
+          direction='row'
+          >
         <MenuComponent />
 
-        {children}
+          {children}
         
-          </Stack>
+        </Stack>
       </body>
     </html>
   );

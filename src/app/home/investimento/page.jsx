@@ -2,15 +2,22 @@
 
 import React from 'react';
 import { Box } from '@mui/material';
-import ApexChart from '@/app/components/graphics/position';
+import PainelInvestment from '@/app/components/painel/show_status_stocks';
+import StockChart from '@/app/components/graphics/stock';
+import JustStockList from '@/app/components/list/just_stockList';
+import StockvsIndice from '@/app/components/graphics/stockvsIndice';
 
 const Investimento = () => {
   return (
     <Box
       width='80%'
-      marginTop= '87px'
+      marginTop= '7rem'
       >
-        <ApexChart />
+        <PainelInvestment />
+        <JustStockList />
+        
+        <StockvsIndice/>
+
     </Box>
   )
 };

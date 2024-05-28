@@ -9,7 +9,7 @@ const values = [
   110213, 109920, 110058, 110906, 110333, 108967, 108339, 110568, 112558, 112697, 114610, 115489, 117022, 117337, 116753, 119068, 119208, 118757, 119858, 119623, 120420, 118959, 118977, 118246, 117524, 116683, 118388, 118092, 119673, 119072, 119548, 117427, 118897, 117942, 117557, 117671, 119268, 117711, 118218, 117842, 117558, 118090, 120220, 121344, 122003, 122560, 120002, 120188, 121945, 121249, 120859, 120586, 119509, 119378, 119090, 118412, 118350, 118067, 116809, 116171, 115592, 114973, 115404, 114433, 116160, 118135, 117025, 115838, 117124, 118404, 117537, 115744, 117893, 117776, 117331, 115979, 115316, 116885, 117968, 118181, 119393, 118759, 118293, 117864, 118695, 116147, 116009, 115922, 114194, 114875, 115742, 116565, 115055, 113430, 113609, 113283, 114169, 115158, 116737, 117050, 115760, 116526, 115907, 114059, 113996, 113145, 112814, 113762, 112840, 114777, 113303, 112534, 113157, 115062, 118160, 118422, 119268, 119180, 119036, 120561, 120411, 123165, 124639, 124773, 125957, 125626, 126035, 126553, 125517, 125726, 126541, 126168, 127331, 128183, 126802, 126907, 125623, 126010, 127093, 126923, 126406, 129469, 130842, 130202, 131088, 131851, 130826, 132553, 132753, 133523, 134194, 134186, 132697, 132831, 131218, 132023, 132424, 131447, 130841, 130652, 130988, 131515, 129293, 128524, 127319, 127636, 126612, 128275, 127815, 128196, 128970, 128492, 127402, 127752, 128471, 127182, 127593, 130412, 129950, 128216, 128026, 127018, 127809, 128720, 129033, 129916, 130035, 130240, 129417, 129613, 131685, 130155, 129026, 129176, 128336, 128099, 128890, 128335, 127068, 126124, 127668, 127992, 127682, 126758, 126955, 127534, 129125, 128159, 127027, 126931, 126863, 127689, 128106, 126990, 127546, 127313, 127422, 126796, 128858, 129872, 128051, 127396, 125946, 125316, 124389, 124171, 124197, 125124, 125572, 125149, 124718, 124651, 126527, 127352, 125926, 127130, 128506, 128466, 129210, 129468, 128188, 127600, 128155, 128514, 128029, 128280, 128151, 127754, 127412, 117025, 115838, 117124, 118404, 117537, 115744, 117893, 117776, 117331, 115979, 115316, 116885, 117968, 118181, 119393, 118759, 118293, 117864, 118695, 116147, 116009, 115922, 114194, 114875, 115742, 116565, 115055, 113430, 113609, 113283, 114169, 115158, 116737, 117050, 115760, 116526, 115907, 114059, 113996, 113145, 112814, 113762, 112840,118218, 117842, 117558, 118090, 120220, 121344, 122003, 122560, 120002, 120188, 121945, 121249, 120859, 120586, 133523, 134194, 134186, 132697, 132831, 131218, 132023, 132424, 131447, 130841, 130652, 130988, 131515, 129293, 128524, 127319, 127636, 126612, 128275, 127815, 128196, 128970, 128492, 127402, 127752, 128471, 127182, 127593, 118218, 117842, 117558, 118090, 120220, 121344, 122003, 122560, 120002, 120188, 121945, 121249, 120859, 120586, 133523, 134194, 134186, 132697, 132831, 131218, 132023, 132424, 131447, 130841, 130652, 130988, 131515, 129293, 128524
 ]
 
-class CarteiraGraphic extends React.Component {
+class StockChart extends React.Component {
   render() {
     const options = {
       chart: {
@@ -78,24 +78,19 @@ class CarteiraGraphic extends React.Component {
         show: true,
         showAlways: false,
         showForNullSeries: true,
-        seriesName: undefined,
         opposite: true,
         reversed: false,
         logarithmic: false,
         logBase: 10,
-        tickAmount: undefined,
-        min: undefined,
-        max: undefined,
-        stepSize: undefined,
         forceNiceScale: false,
         floating: false,
         labels: {
-          show: true,
+          show: false,
           minWidth: 0,
-          maxWidth: 160,
+          maxWidth: 100,
           style: {
             colors: ['#4D5A50'],
-            fontSize: '12px',
+            fontSize: '1px',
             fontFamily: 'Montserrat',
             fontWeight: 300,
             cssClass: 'class-graphic-carteira',
@@ -115,29 +110,11 @@ class CarteiraGraphic extends React.Component {
         axisBorder: {
           show: true,
           color: '#78909C',
-          offsetX: 0,
-          offsetY: 0
         },
         axisTicks: {
           show: true,
             borderType: 'solid',
             color: '#78909C',
-            width: 6,
-            offsetX: 0,
-            offsetY: 0
-          },
-          title: {
-            text: undefined,
-            rotate: 0,
-            offsetX: 0,
-            offsetY: 0,
-            style: {
-              color: undefined,
-              fontSize: '12px',
-              fontFamily: 'Helvetica, Arial, sans-serif',
-              fontWeight: 600,
-              cssClass: 'apexcharts-yaxis-title',
-            },
           },
           crosshairs: {
             show: true,
@@ -161,26 +138,12 @@ class CarteiraGraphic extends React.Component {
           }
         },
         title: {
-          text: 'Carteira',
+          text: 'AMZON',
           align: 'left',
           style: {
             fontSize: '16px',
             fontWeight: 'bold',
             fontFamily: 'Montserrat, sans-serif',
-          },
-        },
-        subtitle: {
-          text: 'patrimonio dia a dia',
-          align: 'left',
-          margin: 40,
-          offsetX: 0,
-          offsetY: 0,
-          floating: true,
-          style: {
-            fontSize:  '12px',
-            fontWeight:  'medium',
-            fontFamily:  'Montserrat',
-            color:  '#4D5A50'
           },
         },
         colors: ['#f0b935'],
@@ -194,8 +157,7 @@ class CarteiraGraphic extends React.Component {
             breakpoint: 450,
             options: {
             chart: {
-              width: '100%',
-              
+              width: '80%',
             },
           },
         },
@@ -245,9 +207,9 @@ class CarteiraGraphic extends React.Component {
     }
 
     return (
-      <Chart styles={barStyle} options={options} series={series} type="line" height={400} />
+      <Chart styles={barStyle} options={options} series={series} type="line" height={500} />
     );
   };
 }
 
-export default CarteiraGraphic;
+export default StockChart;
