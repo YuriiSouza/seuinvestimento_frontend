@@ -107,8 +107,8 @@ export default function Header() {
     >
       <MenuItem>Perfil</MenuItem>
       <MenuItem>Preferencias</MenuItem>
-      </Menu>
- );
+    </Menu>
+  );
 
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
@@ -147,7 +147,7 @@ export default function Header() {
   );
 
 
-  const mobileBarMenuId = 'mobileBarMeny';
+  const mobileBarMenuId = 'mobileBarMenu';
   const renderMobileBarMenu = (
     <Menu
       position='fixed'
@@ -188,13 +188,15 @@ export default function Header() {
       }}
     >
       <AppBar
-        sx={{ backgroundColor: '#162c63' }}
-        >
+        sx={{ 
+          backgroundColor: '#162c63', 
+          zIndex: 9999
+        }}
+      >
         <Toolbar>
           <Box sx={{ 
             display: { xs: 'flex', md: 'none' } 
-            
-            }}>
+          }}>
             <IconButton
               size="large"
               aria-label="show more"
@@ -210,18 +212,21 @@ export default function Header() {
             variant="h6"
             noWrap
             component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
-            >
-            <img src="/images/logo.png" alt="logo"/>
+            sx={{ 
+              display: { xs: 'none', sm: 'block' },
+              flexGrow: 1
+            }}
+          >
+            <img src="/images/logo.png" alt="logo" width="120" />
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
           <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="open drawer"
-              sx={{ mr: 2 }}
-              >
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            sx={{ mr: 2 }}
+          >
             <RemoveRedEyeIcon />
           </IconButton>
           <Search>
@@ -230,27 +235,27 @@ export default function Header() {
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="Pesquisar"
-              inputProps={{ 'Montserrat': 'Pesquisar' }}
-              />
+              inputProps={{ 'aria-label': 'search' }}
+            />
           </Search>
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton
               aria-label="account of current user"
               aria-controls={menuId}
               onClick={handleProfileMenuOpen}
-              >
-              <img src="/images/user_photo.png" alt="User" />
+            >
+              <img src="/images/user_photo.png" alt="User" width="30" />
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="show more"
-              aria-controls={mobileMenuId}
+              aria-controls={mobileBarMenuId}
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
               color="inherit"
-              >
+            >
               <MoreIcon />
             </IconButton>
           </Box>

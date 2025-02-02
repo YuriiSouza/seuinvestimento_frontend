@@ -22,6 +22,36 @@ const themeWhite = createTheme({
   },
 });
 
+const styleMenuOptions = {
+  borderRadius: '8px',
+  height: '5rem', 
+  gap: 1,
+  transition: '0.3s',
+  fontFamily: 'Montserrat',
+  fontStyle: 'bold',
+  fontSize: '1.5rem',
+  "&:hover": { 
+    backgroundColor: '#f0b935',  // Cor de fundo ao passar o mouse
+    color: '#162c63' // Cor do texto ao passar o mouse
+  }
+}
+
+const styleMenu = {
+  flexGrow: 1,
+  display: { xs: 'none', md: 'block'},
+  fontFamily: 'Allerta',
+  fontSize: '1.5rem',
+}
+
+const stylePaper = {
+  display: 'flex',
+  flexDirection: 'column',
+  backgroundColor: '#162c63',
+  color: '#f2f4f5',
+    borderRadius: '0px',
+  height: '100vh',
+  width: '20rem',
+}
 export default function MenuComponent() {
   const router = useRouter();
 
@@ -39,30 +69,18 @@ export default function MenuComponent() {
         width='20rem'
         position='relative'
         top='87px'
-        sx={{
-          flexGrow: 1,
-          display: { xs: 'none', md: 'block'}
-        }}
+        sx={styleMenu}
       >
         <Box sx={{ display: { xs: 'none', md: 'block' } }}>
-          <Paper
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              backgroundColor: '#162c63',
-              color: '#f2f4f5',
-               borderRadius: '0px',
-              height: '100vh',
-              width: '20rem',
-            }}
-          >
+          <Paper sx={stylePaper}>
             <MenuList>
-              <MenuItem onClick={goTo('/home/investimento')}>
+              <MenuItem sx={styleMenuOptions} onClick={goTo('/home/investimento')}
+              >
                 <MonetizationOnIcon />
                 Investimentos
               </MenuItem>
 
-              <MenuItem onClick={goTo('/home/patrimonio')}>
+              <MenuItem sx={styleMenuOptions} onClick={goTo('/home/patrimonio')}>
                 <CandlestickChartIcon />
                 Patrimônio
               </MenuItem>

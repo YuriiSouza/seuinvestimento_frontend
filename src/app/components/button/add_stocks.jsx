@@ -1,21 +1,35 @@
-import { Box, Button, ThemeProvider } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import React from 'react';
-// import '@/app/globals.css'
+import '@/app/globals.css';
 
-const Add_stock = () => {
-
-
+const AddStock = () => {
   return (
-    <Box
-        marginBottom='1rem'
-        display='flex'
-    >
-        <Button>
-            <img src="/svg/add_button.svg" />
-        </Button>
-        <p >Adcionar Título</p>
+    <Box display="flex" alignItems="center" marginBottom="1rem">
+      <Button
+        sx={{
+          minWidth: '24px', // Garante um tamanho mínimo para o botão
+          padding: '0rem',
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <img src="/svg/add_button.svg" alt="Adicionar" />
+      </Button>
+      <p
+        style={{
+          marginLeft: '0.5rem',
+          fontSize: '1.5rem',
+          fontWeight: 'bold',
+          color: '#FFFFFF',
+          textShadow: '1px 1px 2px rgba(0, 0, 0, 0.3)',
+        }}
+      >
+        Adicionar Título
+      </p>
     </Box>
-);
-}
+  );
+};
 
-export default Add_stock;
+export default AddStock;

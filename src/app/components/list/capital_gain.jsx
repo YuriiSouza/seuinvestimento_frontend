@@ -1,15 +1,17 @@
 import React from 'react';
+import { Box, Typography } from '@mui/material';
 
 const ListCapital = () => {
   const estiloRetangulo = {
-    width: '40%',
-    height: '30rem',
+    width: '100%',
+    maxWidth: '600px', // Tamanho máximo para manter o design
+    height: 'auto',
     marginTop: '2rem',
     backgroundColor: '#f2f4f5',
     borderRadius: '20px',
     boxSizing: 'border-box',
     padding: '1rem',
-    overflow: 'auto'
+    overflow: 'auto',
   };
 
   const estiloTitulo = {
@@ -20,19 +22,21 @@ const ListCapital = () => {
 
   const estiloLista = {
     listStyle: 'none',
-    fontSize: '12px',
+    fontSize: '14px', // Ajuste do tamanho da fonte para dispositivos móveis
     padding: 0,
+    margin: 0,
   };
 
   const estiloItem = {
-    backgroundColor: '#',
+    backgroundColor: '#fff',
     border: '1px solid #ccc',
     borderRadius: '10px',
     marginBottom: '10px',
     padding: '10px',
     display: 'flex',
+    flexDirection: 'column', // Empilhar os itens em telas menores
     justifyContent: 'space-between',
-    alignItems: 'center',
+    alignItems: 'flex-start',
   };
 
   const estiloItemContent = {
@@ -50,79 +54,33 @@ const ListCapital = () => {
   };
 
   const items = [
-    {
-      'id': '1',
-      'data': 'julho de 2023',
-      'value': 'R$5.600,00'
-    },
-    {
-      'id': '2',
-      'data': 'junho de 2023',
-      'value': 'R$3.900,00'
-    },
-    {
-      'id': '3',
-      'data': 'maio de 2023',
-      'value': 'R$2.800,00'
-    },
-    {
-      'id': '4',
-      'data': 'abril de 2023',
-      'value': 'R$2.400,00'
-    },
-    {
-      'id': '5',
-      'data': 'março de 2023',
-      'value': 'R$2.100,00'
-    },
-    {
-      'id': '6',
-      'data': 'fevereiro de 2023',
-      'value': 'R$1.800,00'
-    },
-    {
-      'id': '7',
-      'data': 'janeiro de 2023',
-      'value': 'R$1.500,00'
-    },
+    { id: '1', data: 'julho de 2023', value: 'R$5.600,00' },
+    { id: '2', data: 'junho de 2023', value: 'R$3.900,00' },
+    { id: '3', data: 'maio de 2023', value: 'R$2.800,00' },
+    { id: '4', data: 'abril de 2023', value: 'R$2.400,00' },
+    { id: '5', data: 'março de 2023', value: 'R$2.100,00' },
+    { id: '6', data: 'fevereiro de 2023', value: 'R$1.800,00' },
+    { id: '7', data: 'janeiro de 2023', value: 'R$1.500,00' },
   ];
 
-  const options = {
-    series: [20, 20, 20, 20, 20],
-    chart: {
-    type: 'donut',
-  },
-  responsive: [{
-    breakpoint: 480,
-    options: {
-      chart: {
-        width: 200
-      },
-      legend: {
-        position: 'bottom'
-      }
-    }
-  }]
-  };
-  
   return (
-    <div style={estiloRetangulo}>
-      <h1 style={estiloTitulo}>Ganho de capital</h1>
+    <Box style={estiloRetangulo}>
+      <Typography style={estiloTitulo}>Ganho de capital</Typography>
       <ul style={estiloLista}>
         {items.map((item) => (
           <li key={item.id} style={estiloItem}>
             <div style={estiloItemContent}>
-              <p style={estiloLabel}>Período:</p>
-              <p style={estiloValue}>{item.data}</p>
+              <Typography style={estiloLabel}>Período:</Typography>
+              <Typography style={estiloValue}>{item.data}</Typography>
             </div>
             <div style={estiloItemContent}>
-              <p style={estiloLabel}>Saldo:</p>
-              <p style={estiloValue}>{item.value}</p>
+              <Typography style={estiloLabel}>Saldo:</Typography>
+              <Typography style={estiloValue}>{item.value}</Typography>
             </div>
           </li>
         ))}
       </ul>
-    </div>
+    </Box>
   );
 };
 

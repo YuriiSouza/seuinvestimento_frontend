@@ -1,7 +1,7 @@
 // src/services/apiService.js
 import axios from 'axios';
 
-const API_HOST = 'http://localhost:3000';
+const API_HOST = 'http://localhost:6000';
 
 const apiService = {
   async login(dataLogin) {

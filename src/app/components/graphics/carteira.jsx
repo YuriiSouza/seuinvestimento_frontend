@@ -65,7 +65,7 @@ class CarteiraGraphic extends React.Component {
               filename: 'patrimonio_dia_a_dia',
             }
           },
-          autoSelected: 'zoom' 
+          autoSelected: 'zoom'
         },
       },
       dataLabels: {
@@ -75,163 +75,54 @@ class CarteiraGraphic extends React.Component {
         curve: 'smooth',
       },
       yaxis: {
-        show: true,
-        showAlways: false,
-        showForNullSeries: true,
-        seriesName: undefined,
-        opposite: true,
-        reversed: false,
-        logarithmic: false,
-        logBase: 10,
-        tickAmount: undefined,
-        min: undefined,
-        max: undefined,
-        stepSize: undefined,
-        forceNiceScale: false,
-        floating: false,
+        show: false,  // Definido como false para esconder o eixo Y
+      },
+      xaxis: {
+        categories: label,
         labels: {
-          show: true,
-          minWidth: 0,
-          maxWidth: 160,
-          style: {
-            colors: ['#4D5A50'],
-            fontSize: '12px',
-            fontFamily: 'Montserrat',
-            fontWeight: 300,
-            cssClass: 'class-graphic-carteira',
-          },
-          offsetX: -10,
-          offsetY: 0,
-          rotate: 0,
-          formatter: (value) => { 
-            let val = value.toFixed(2)
-            
-            let [integerPart, decimalPart] = val.split('.');
-            integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-            
-            return `R$ ${integerPart + ',' + decimalPart}`
-          },
+          show: false
+        }
+      },
+      title: {
+        text: 'Carteira',
+        align: 'left',
+        style: {
+          fontSize: '16px',
+          fontWeight: 'bold',
+          fontFamily: 'Montserrat, sans-serif',
         },
-        axisBorder: {
-          show: true,
-          color: '#78909C',
-          offsetX: 0,
-          offsetY: 0
+      },
+      subtitle: {
+        text: 'patrimonio dia a dia',
+        align: 'left',
+        margin: 40,
+        offsetX: 0,
+        offsetY: 0,
+        floating: true,
+        style: {
+          fontSize: '12px',
+          fontWeight: 'medium',
+          fontFamily: 'Montserrat',
+          color: '#4D5A50'
         },
-        axisTicks: {
-          show: true,
-            borderType: 'solid',
-            color: '#78909C',
-            width: 6,
-            offsetX: 0,
-            offsetY: 0
-          },
-          title: {
-            text: undefined,
-            rotate: 0,
-            offsetX: 0,
-            offsetY: 0,
-            style: {
-              color: undefined,
-              fontSize: '12px',
-              fontFamily: 'Helvetica, Arial, sans-serif',
-              fontWeight: 600,
-              cssClass: 'apexcharts-yaxis-title',
-            },
-          },
-          crosshairs: {
-            show: true,
-            position: 'back',
-            stroke: {
-              color: '#b6b6b6',
-              width: 1,
-              dashArray: 0,
-            },
-          },
-          tooltip: {
-            enabled: true,
-            offsetX: 0,
-          },
-          
-        },
-        xaxis: {
-          categories: label,
-          labels: {
-            show: false
-          }
-        },
-        title: {
-          text: 'Carteira',
-          align: 'left',
-          style: {
-            fontSize: '16px',
-            fontWeight: 'bold',
-            fontFamily: 'Montserrat, sans-serif',
-          },
-        },
-        subtitle: {
-          text: 'patrimonio dia a dia',
-          align: 'left',
-          margin: 40,
-          offsetX: 0,
-          offsetY: 0,
-          floating: true,
-          style: {
-            fontSize:  '12px',
-            fontWeight:  'medium',
-            fontFamily:  'Montserrat',
-            color:  '#4D5A50'
-          },
-        },
+      },
+      colors: ['#f0b935'],
+      fill: {
         colors: ['#f0b935'],
-        
-        fill: {
-          colors: ['#f0b935'],
         opacity: 1,
         type: 'solid',
-        responsive: [
-          {
-            breakpoint: 450,
-            options: {
+      },
+      responsive: [
+        {
+          breakpoint: 450,
+          options: {
             chart: {
               width: '100%',
-              
             },
           },
         },
       ],
-    },
-    grid: {
-      show: true,
-      borderColor: '#4D5A50',
-      strokeDashArray: 1,
-      position: 'back',
-      xaxis: {
-        lines: {
-                show: false
-            }
-        },   
-        yaxis: {
-            lines: {
-                show: true
-            }
-        },  
-        row: {
-            colors: ['#F2F4F5'],
-            opacity: 0.5 
-        },  
-        column: {
-            colors: ['#F2F4F5'] ,
-            opacity: 0.5
-        },  
-        padding: {
-            top: 0,
-            right: 0,
-            bottom: 0,
-            left: 0
-        }
-    }
-  }
+    };
 
     const series = [
       {
@@ -244,10 +135,20 @@ class CarteiraGraphic extends React.Component {
       borderRadius: '20px'
     }
 
+    const chartContainerStyle = {
+      borderRadius: "20px",
+      overflow: "hidden",
+      border: "1px solid #ccc",
+      backgroundColor: "#f5f5f5",
+    };
+
     return (
-      <Chart styles={barStyle} options={options} series={series} type="line" height={400} />
+      <div style={chartContainerStyle}>
+        <Chart options={options} series={series} type="line" height={400} />
+      </div>
     );
-  };
+  }
 }
 
 export default CarteiraGraphic;
+
